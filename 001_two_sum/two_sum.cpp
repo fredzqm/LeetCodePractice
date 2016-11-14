@@ -61,18 +61,20 @@ int main (int argc, char** argv) {
     int target;
     Solution sol;
  
-    cout << "Please enter list of number:" << endl;
-    getline(cin, rawInput);
+    // Please enter list of number:
+    if (!getline(cin, rawInput))
+      break;
     vector<string> strs = split(rawInput, ' ');
     for (string i: strs)
       ls.push_back(atoi(i.c_str()));
 
-    cout << "Please enter the target:" << endl;
-    getline(cin, rawInput);
+    // Please enter the target:
+    if (!getline(cin, rawInput))
+      break;
     target = atoi(rawInput.c_str());
 
     vector<int> ans = sol.twoSum(ls, target);
-    cout << "The answer is: " << ans << endl;
+    cout << ans << endl;
   }
 }
 
