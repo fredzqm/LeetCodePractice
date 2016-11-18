@@ -1,11 +1,15 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
- * };
- */
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <unordered_map>
+#include <cstdlib> 
+#include <algorithm>
+#include <iterator>
+#include "ListNode.cpp"
+
+using namespace std;
+
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
@@ -33,3 +37,41 @@ private:
         return ret;
     }
 };
+
+
+vector<string> split(const string &s, char delim) {
+    stringstream ss(s);
+    string item;
+    vector<string> tokens;
+    while (getline(ss, item, delim)) {
+        tokens.push_back(item);
+    }
+    return tokens;
+}
+
+int main (int argc, char** argv) {
+  string rawInput;
+  while(true){
+    vector<int> ls, ls2;
+    int target;
+    Solution sol;
+ 
+    // Please enter list of number:
+    if (!getline(cin, rawInput))
+      break;
+    vector<string> strs = split(rawInput, ' ');
+    for (string i: strs)
+      ls.push_back(atoi(i.c_str()));
+
+    // Please enter the target:
+    if (!getline(cin, rawInput))
+      break;
+    strs = split(rawInput, ' ');
+    for (string i: strs)
+      ls2.push_back(atoi(i.c_str()));
+
+    // vector<int> ans = sol.twoSum(ls, target);
+    // cout << ans << endl;
+  }
+  return 0;
+}

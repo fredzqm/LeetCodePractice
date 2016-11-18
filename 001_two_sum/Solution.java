@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.Scanner;
 import java.util.Arrays;
 
 public class Solution {
@@ -16,20 +15,14 @@ public class Solution {
   }
 
 
-  static Scanner in = new Scanner(System.in);
-
   public static void main(String[] args) {
-  	while (in.hasNextLine()) {
-      Solution sol = new Solution();
-      String x = in.nextLine();
-      String[] sp = x.split(" ");
-      int[] nums = new int[sp.length];
-      for (int i = 0; i < sp.length; i++)
-        nums[i] = Integer.parseInt(sp[i]);
-
-      int target = Integer.parseInt(in.nextLine());
+    IO io = new IO();
+    Solution sol = new Solution();
+    while (io.hasNext()) {
+      int[] nums = io.nextIntArray();
+      int target = io.nextInt();
       int[] ans = sol.twoSum(nums, target);
-      System.out.println(Arrays.toString(ans));
+      io.println(ans);
     }
   }
 }

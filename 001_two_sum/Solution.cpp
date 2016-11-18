@@ -1,11 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <sstream>
+// #include <iostream>
+// #include <vector>
+// #include <sstream>
 #include <unordered_map>
-#include <cstdlib> 
-#include <iterator>
+// #include <iterator>
 
-using namespace std;
+#include "../IO.h"
 
 class Solution {
 public:
@@ -26,50 +25,16 @@ public:
   }
 };
 
-vector<string> split(const string &s, char delim) {
-    stringstream ss(s);
-    string item;
-    vector<string> tokens;
-    while (getline(ss, item, delim)) {
-        tokens.push_back(item);
-    }
-    return tokens;
-}
-
-template<typename T>
-std::ostream& operator<<(std::ostream& os, std::vector<T> vec)
-{
-    os<<"[";
-    // cout << vec.size() << endl;
-    if(vec.size()!=0)
-    {
-        std::copy(vec.begin(), vec.end()-1, ostream_iterator<T>(os, ", "));
-        os << vec.back();
-    }
-    os<<"]";
-    return os;
-}
-
 
 int main (int argc, char** argv) {
-  string rawInput;
+  Solution sol;
   while(true){
     vector<int> ls;
     int target;
-    Solution sol;
- 
-    // Please enter list of number:
-    if (!getline(cin, rawInput))
+    cin >> ls;
+    cin >> target;
+    if (!cin)
       break;
-    vector<string> strs = split(rawInput, ' ');
-    for (string i: strs)
-      ls.push_back(atoi(i.c_str()));
-
-    // Please enter the target:
-    if (!getline(cin, rawInput))
-      break;
-    target = atoi(rawInput.c_str());
-
     vector<int> ans = sol.twoSum(ls, target);
     cout << ans << endl;
   }
