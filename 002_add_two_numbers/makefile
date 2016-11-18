@@ -2,8 +2,8 @@ all: cpp java py js
 
 compile: Solution.class a.exe
 
-a.exe: Solution.cpp
-	g++ Solution.cpp -std=c++11 > a.exe
+a.exe: Solution.cpp ListNode.cpp ListNode.h
+	g++ Solution.cpp -std=c++11 -Wfatal-errors > a.exe
 
 Solution.class: Solution.java
 	javac Solution.java

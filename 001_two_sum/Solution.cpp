@@ -1,10 +1,8 @@
 #include <iostream>
 #include <vector>
-#include <string>
 #include <sstream>
 #include <unordered_map>
 #include <cstdlib> 
-#include <algorithm>
 #include <iterator>
 
 using namespace std;
@@ -45,13 +43,12 @@ std::ostream& operator<<(std::ostream& os, std::vector<T> vec)
     // cout << vec.size() << endl;
     if(vec.size()!=0)
     {
-        std::copy(vec.begin(), vec.end()-1, std::ostream_iterator<T>(os, ", "));
+        std::copy(vec.begin(), vec.end()-1, ostream_iterator<T>(os, ", "));
         os << vec.back();
     }
     os<<"]";
     return os;
 }
-
 
 
 int main (int argc, char** argv) {
@@ -76,6 +73,7 @@ int main (int argc, char** argv) {
     vector<int> ans = sol.twoSum(ls, target);
     cout << ans << endl;
   }
+  return 0;
 }
 
 
