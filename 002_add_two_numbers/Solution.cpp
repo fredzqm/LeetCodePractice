@@ -1,14 +1,36 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <sstream>
-#include <unordered_map>
-#include <cstdlib> 
-#include <algorithm>
 #include <iterator>
-#include "ListNode.cpp"
+
+#include "../IO.h"
 
 using namespace std;
+
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode(int x) : val(x), next(NULL) {}
+    ListNode(const vector<int>::iterator& cur, const vector<int>::iterator& end) {
+        this-> val = *cur;
+        if (cur+1 == end) 
+            this -> next = NULL;
+        else
+            this -> next = new ListNode(cur+1, end);
+    }
+    ~ListNode() {
+        delete next;
+    }
+};
+
+ostream& operator<<(ostream& os, const ListNode* node)
+{
+    os << node->val << " ";
+    if (node->next != NULL)
+        os << node->next;
+    return os;
+}
+
 
 class Solution {
 public:
@@ -39,39 +61,19 @@ private:
 };
 
 
-vector<string> split(const string &s, char delim) {
-    stringstream ss(s);
-    string item;
-    vector<string> tokens;
-    while (getline(ss, item, delim)) {
-        tokens.push_back(item);
-    }
-    return tokens;
-}
-
 int main (int argc, char** argv) {
-  string rawInput;
+  Solution sol;
   while(true){
-    vector<int> ls, ls2;
-    int target;
-    Solution sol;
- 
-    // Please enter list of number:
-    if (!getline(cin, rawInput))
-      break;
-    vector<string> strs = split(rawInput, ' ');
-    for (string i: strs)
-      ls.push_back(atoi(i.c_str()));
-
-    // Please enter the target:
-    if (!getline(cin, rawInput))
-      break;
-    strs = split(rawInput, ' ');
-    for (string i: strs)
-      ls2.push_back(atoi(i.c_str()));
-
-    // vector<int> ans = sol.twoSum(ls, target);
-    // cout << ans << endl;
+    vector<int> ls_a, ls_b;
+    cin >> ls_a;
+    cin >> ls_b;
+    ListNode* a = new ListNode(ls_a.begin(), ls_a.end());
+    ListNode* b = new ListNode(ls_b.begin(), ls_b.end());
+    if (!cin)
+        break;
+    ListNode* ans = sol.addTwoNumbers(a, b);
+    cout << ans << endl;
+    delete a, b, ans;
   }
   return 0;
 }
