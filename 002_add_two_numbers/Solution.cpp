@@ -67,10 +67,10 @@ int main (int argc, char** argv) {
     vector<int> ls_a, ls_b;
     cin >> ls_a;
     cin >> ls_b;
-    ListNode* a = new ListNode(ls_a.begin(), ls_a.end());
-    ListNode* b = new ListNode(ls_b.begin(), ls_b.end());
     if (!cin)
         break;
+    ListNode* a = new ListNode(ls_a.begin(), ls_a.end());
+    ListNode* b = new ListNode(ls_b.begin(), ls_b.end());
     ListNode* ans = sol.addTwoNumbers(a, b);
     cout << ans << endl;
     delete a, b, ans;
