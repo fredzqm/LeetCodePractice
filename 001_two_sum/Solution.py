@@ -20,7 +20,7 @@ if __name__ == '__main__':
       nums = [int(x) for x in input().split()]
       target = int(input())
       ans = sol.twoSum(nums, target)
-      print(ans)
+      print(x)
   except EOFError:
     pass
 

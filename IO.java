@@ -3,7 +3,6 @@ import java.io.PrintStream;
 
 public class IO {
 	private Scanner in = new Scanner(System.in);
-	private PrintStream out = System.out;
 
 	public boolean hasNext(){
 		return in.hasNext();
@@ -28,9 +27,4 @@ public class IO {
 		return in.nextInt();
 	}
 
-	public void println(int[] x){
-		for (int i : x)
-			out.print(" "+i);
-		out.println();
-	}
 }

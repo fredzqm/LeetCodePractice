@@ -16,13 +16,13 @@ public class Solution {
 
 
   public static void main(String[] args) {
-    IO io = new IO();
+    IO in = new IO();
     Solution sol = new Solution();
-    while (io.hasNext()) {
-      int[] nums = io.nextIntArray();
-      int target = io.nextInt();
+    while (in.hasNext()) {
+      int[] nums = in.nextIntArray();
+      int target = in.nextInt();
       int[] ans = sol.twoSum(nums, target);
-      io.println(ans);
+      System.out.println(Arrays.toString(ans));
     }
   }
 }

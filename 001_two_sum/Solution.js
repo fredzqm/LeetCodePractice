@@ -15,24 +15,13 @@ var twoSum = function(nums, target) {
   return undefined;
 };
 
-if (require.main === module) {
-	const readline = require('readline');
-	const rl = readline.createInterface({
-	  input: process.stdin,
-	  output: process.stdout
-	});
 
-	let nums = undefined;
-	rl.on('line', (input) => {
-		if (!nums) {
-			nums = input.split(" ").map((x) => {
-				return parseInt(x);
-			});
-		} else {
-			let target = parseInt(input);
-			let ans = twoSum(nums, target);
-			console.log(ans);
-			nums = undefined;
-		}
+if (require.main === module) {
+	const io = require('../IO');
+	io([{type:'int',isList:true},
+		{type:'int'}],
+	data => {
+		let ans = twoSum(data[0], data[1]);
+		console.log(ans);
 	});
 }
