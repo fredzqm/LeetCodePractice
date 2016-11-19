@@ -1,8 +1,5 @@
 # [Two Sum](https://leetcode.com/problems/two-sum/)
-Total Accepted: 350025
-Total Submissions: 1228220
 Difficulty: Easy
-Contributors: Admin
 
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution.

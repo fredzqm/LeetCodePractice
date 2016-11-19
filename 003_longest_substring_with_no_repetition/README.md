@@ -1,17 +1,13 @@
-# [Two Sum](https://leetcode.com/problems/two-sum/)
-Total Accepted: 350025
-Total Submissions: 1228220
-Difficulty: Easy
-Contributors: Admin
+# [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
+Given a string, find the length of the longest substring without repeating characters.
 
-Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution.
+Difficulty: Medium
 
-Example:
-Given nums = [2, 7, 11, 15], target = 9,
+Examples:
 
-Because nums[0] + nums[1] = 2 + 7 = 9,
-return [0, 1].
-UPDATE (2016/2/13):
-The return format had been changed to zero-based indices. Please read the above updated description carefully.
+Given "abcabcbb", the answer is "abc", which the length is 3.
+
+Given "bbbbb", the answer is "b", with the length of 1.
+
+Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
