@@ -28,7 +28,7 @@ java: java.out
 	@echo "=============================== java:"
 	@git diff -w --no-index out java.ans
 
-py.out:
+py.out: Solution.py
 	@cat in | py -3.4 Solution.py > py.out
 
 py: py.out
@@ -36,7 +36,7 @@ py: py.out
 	@echo "=============================== python:"
 	@git diff -w --no-index out py.ans
 
-js.out:
+js.out: Solution.js
 	@cat in | node Solution.js > js.out
 
 js: js.out

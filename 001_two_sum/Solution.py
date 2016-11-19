@@ -15,12 +15,14 @@ class Solution(object):
 
 if __name__ == '__main__':
   try:
+    sol = Solution()
     while (True):
-      sol = Solution()
       nums = [int(x) for x in input().split()]
       target = int(input())
       ans = sol.twoSum(nums, target)
       print(x)
   except EOFError:
     pass
+
+
 
