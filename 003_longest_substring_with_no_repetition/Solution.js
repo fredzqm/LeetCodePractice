@@ -1,27 +1,35 @@
 /**
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
+ * @param {string} s
+ * @return {number}
  */
-var twoSum = function(nums, target) {
-  var m = new Map();
-  for (var i = 0; i < nums.length; i ++){
-    var comp = target - nums[i];
-    if (comp in m){
-      return [m[comp] , i];
+var lengthOfLongestSubstring = function(s) {
+    var j = 0;
+    var max = 0;
+    var st = new Set();
+    for (let i = 0; i < s.length; i++){
+        var c = s[i];
+        if (st.has(c)){
+            if (i - j > max)
+                max = i - j;
+            while (s[j] !== c){
+                st.delete(s[j]);
+                j++;
+            }
+            j++;
+        } else {
+            st.add(c);
+        }
     }
-    m[nums[i]] = i;
-  }
-  return undefined;
+    if (s.length - j > max)
+        max = s.length - j;
+    return max;
 };
 
-
 if (require.main === module) {
-	const io = require('../IO');
-	io([{type:'int',isList:true},
-		{type:'int'}],
-	data => {
-		let ans = twoSum(data[0], data[1]);
-		console.log(ans);
-	});
+    const io = require('../IO');
+    io([{type:'string'}],
+        data => {
+            let ans = lengthOfLongestSubstring(data[0]);
+            console.log(ans);
+        });
 }
