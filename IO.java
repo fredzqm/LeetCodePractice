@@ -8,8 +8,12 @@ public class IO {
 		return in.hasNext();
 	}
 
+	public String nextLine(){
+		return in.nextLine();
+	}
+
 	public String[] nextStrings() {
-		String line = in.nextLine();
+		String line = nextLine();
 		if (line.length() == 0)
 			line = in.nextLine();
 		return line.split(" ");

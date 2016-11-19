@@ -1,28 +1,33 @@
-import java.util.HashMap;
-import java.util.Arrays;
+import java.util.HashSet;
 
 public class Solution {
-  public int[] twoSum(int[] nums, int target) {
-    HashMap<Integer, Integer> set = new HashMap<>();
-    for (int i = 0 ; i < nums.length; i ++){
-      int x = nums[i];
-      if (set.containsKey(target - x)){
-        return new int[]{set.get(target - x), i};
-      }
-      set.put(x, i);
+    public int lengthOfLongestSubstring(String s) {
+        HashSet<Character> set = new HashSet<>();
+        int j = 0, max = 0;
+        for (int i = 0; i < s.length(); i ++){
+            char c = s.charAt(i);
+            if (!set.contains(c)){
+                set.add(c);
+            }else{
+                max = Math.max(max, i - j);
+                while (s.charAt(j) != c){
+                    set.remove(s.charAt(j));
+                    j++;
+                }
+                j++;
+            }
+        }
+        return Math.max(max, s.length() - j);
     }
-    return null;
-  }
 
 
-  public static void main(String[] args) {
-    IO in = new IO();
-    Solution sol = new Solution();
-    while (in.hasNext()) {
-      int[] nums = in.nextIntArray();
-      int target = in.nextInt();
-      int[] ans = sol.twoSum(nums, target);
-      System.out.println(Arrays.toString(ans));
-    }
-  }
+	public static void main(String[] args) {
+		IO in = new IO();
+		Solution sol = new Solution();
+		while (in.hasNext()) {
+			String s = in.nextLine();
+			int ans = sol.lengthOfLongestSubstring(s);
+			System.out.println(ans);
+		}
+	}
 }
